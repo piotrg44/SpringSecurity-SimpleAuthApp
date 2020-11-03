@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://igoradamenko.github.io/awsm.css/css/awsm_theme_mischka.css">
+</head>
+<body>
+
+<form action="#"  th:action="@{/register}" th:object="${user}" method="post">
+    <fieldset>
+        <legend>Zarejestruj się</legend>
+        <label>Username:</label>
+        <input type="text" th:field="*{username}">
+        <label>Email:</label>
+        <input type="text" th:field="*{email}">
+        <label>Password:</label>
+        <input type="password" th:field="*{password}">
+        <button type="submit">Dodaj</button>
+    </fieldset>
+</form>
+</body>
+</html>

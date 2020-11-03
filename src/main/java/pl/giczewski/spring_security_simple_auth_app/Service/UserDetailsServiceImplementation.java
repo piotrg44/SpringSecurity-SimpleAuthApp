@@ -8,15 +8,16 @@ import pl.giczewski.spring_security_simple_auth_app.Repisitory.UserRepository;
 
 @Service
 public class UserDetailsServiceImplementation implements UserDetailsService {
-    UserRepository userRepository;
 
-    public UserDetailsServiceImplementation(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    private UserRepository appUserRepo;
+
+    public UserDetailsServiceImplementation(UserRepository appUserRepo) {
+        this.appUserRepo = appUserRepo;
     }
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        System.out.println(userRepository.getByUsername(s));
-        return userRepository.getByUsername(s);
+        // todo throw if not exist
+        return appUserRepo.findByUsername(s);
     }
 }

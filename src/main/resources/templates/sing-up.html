@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="https://igoradamenko.github.io/awsm.css/css/awsm_theme_mischka.css">
 </head>
 <body>
+<main>
+    <form action="#"  th:action="@{/register}" th:object="${user}" method="post">
+        <fieldset>
+            <legend>Zarejestruj się</legend>
+            <label>Username:</label>
+            <input type="text" th:field="*{username}">
+            <label>Email:</label>
+            <input type="text" th:field="*{email}">
+            <label>Password:</label>
+            <input type="password" th:field="*{password}">
+            <button type="submit">Dodaj</button>
+        </fieldset>
+    </form>
+</main>
 
-<form action="#"  th:action="@{/register}" th:object="${user}" method="post">
-    <fieldset>
-        <legend>Zarejestruj się</legend>
-        <label>Username:</label>
-        <input type="text" th:field="*{username}">
-        <label>Email:</label>
-        <input type="text" th:field="*{email}">
-        <label>Password:</label>
-        <input type="password" th:field="*{password}">
-        <button type="submit">Dodaj</button>
-    </fieldset>
-</form>
 </body>
 </html>

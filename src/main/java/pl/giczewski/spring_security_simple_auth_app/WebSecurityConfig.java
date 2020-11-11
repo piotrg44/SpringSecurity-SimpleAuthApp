@@ -10,10 +10,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import pl.giczewski.spring_security_simple_auth_app.Service.UserDetailsServiceImplementation;
 
 @Configuration
-public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public PasswordEncoder getPasswordEncoder(){
+    public PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -31,8 +31,11 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/hello").authenticated()
+                .anyRequest().authenticated()
                 .and()
-                .formLogin().defaultSuccessUrl("/hello");
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/hello")
+                .permitAll();
     }
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://igoradamenko.github.io/awsm.css/css/awsm_theme_mischka.css">
+</head>
+<body>
+<main>
+    <form action="#"  th:action="@{/login}" method="post">
+        <fieldset>
+            <legend>Zaloguj się</legend>
+            <div th:if="${param.error}" class="alert alert-error">
+                Invalid username or password.
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success">
+                You have been logged out.
+            </div>
+            <label>Username:</label>
+            <input type="text" name="username">
+            <label>Password:</label>
+            <input type="password" name="password">
+            <button type="submit">Zaloguj</button>
+        </fieldset>
+    </form>
+</main>
+
+</body>
+</html>
